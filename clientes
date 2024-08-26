@@ -1,0 +1,44 @@
+{
+	"clientes":[
+		{
+			"Nome" : "João",
+			"Idade" : 30,
+			"Telefone" : "1195856-7855",
+			"Endereço" :{
+				"Rua" : "Av. Paulista",
+				"Número" : "10",
+				"Cidade" : "São Paulo"
+			}
+		},
+		{
+			"Nome" : "Maria",
+			"Idade" : 20,
+			"Telefone" : "2195856-3131",
+			"Endereço" :{
+				"Rua" : "Av. Atlântica",
+				"Número" : 200,
+				"Cidade" : "Rio de Janeiro"
+			}
+		},
+		{
+			"Nome" : "Paulo",
+			"Idade" : 52,
+			"Telefone" : "1195856-8986",
+			"Endereço" :{
+				"Rua" : "Rua Oscar Freire",
+				"Número" : 457,
+				"Cidade" : "São Paulo"
+			}
+		},
+		{
+			"Nome" : "Sophia",
+			"Idade" : 30,
+			"Telefone" : "4895856-7894",
+			"Endereço" :{
+				"Rua" : "Avenida Mauro Ramos",
+				"Número" : 255,
+				"Cidade" : "Florianópolis"
+			}
+		}
+	]
+}
