@@ -2,46 +2,46 @@
 	"clientes":[
 		{
 			"ID" : 1,
-			"Nome" : "João",
-			"Idade" : 30,
-			"Telefone" : "1195856-7855",
-			"Endereço" :{
-				"Rua" : "Av. Paulista",
-				"Número" : "10",
-				"Cidade" : "São Paulo"
+			"Name" : "João",
+			"Age" : 30,
+			"Cel" : "1195856-7855",
+			"Address" :{
+				"Road" : "Av. Paulista",
+				"Number" : "10",
+				"City" : "São Paulo"
 			}
 		},
 		{
 			"ID" : 2,
-			"Nome" : "Maria",
-			"Idade" : 20,
-			"Telefone" : "2195856-3131",
-			"Endereço" :{
-				"Rua" : "Av. Atlântica",
-				"Número" : 200,
-				"Cidade" : "Rio de Janeiro"
+			"Name" : "Maria",
+			"Age" : 20,
+			"Cel" : "2195856-3131",
+			"Address" :{
+				"Road" : "Av. Atlântica",
+				"Number" : 200,
+				"City" : "Rio de Janeiro"
 			}
 		},
 		{
 			"ID" : 3,
-			"Nome" : "Paulo",
-			"Idade" : 52,
-			"Telefone" : "1195856-8986",
-			"Endereço" :{
-				"Rua" : "Rua Oscar Freire",
-				"Número" : 457,
-				"Cidade" : "São Paulo"
+			"Name" : "Paulo",
+			"Age" : 52,
+			"Cel" : "1195856-8986",
+			"Address" :{
+				"Road" : "Rua Oscar Freire",
+				"Number" : 457,
+				"City" : "São Paulo"
 			}
 		},
 		{
 			"ID" : 4,
-			"Nome" : "Sophia",
-			"Idade" : 30,
-			"Telefone" : "4895856-7894",
-			"Endereço" :{
-				"Rua" : "Avenida Mauro Ramos",
-				"Número" : 255,
-				"Cidade" : "Florianópolis"
+			"Name" : "Sophia",
+			"Age" : 30,
+			"Cel" : "4895856-7894",
+			"Address" :{
+				"Road" : "Avenida Mauro Ramos",
+				"Number" : 255,
+				"City" : "Florianópolis"
 			}
 		}
 	]
