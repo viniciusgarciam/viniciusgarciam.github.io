@@ -4,28 +4,55 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"os"
-	"strconv"
 	"log"
 	"net/http"
-
-	"github.com/gorilla/mux"
+	"os"
 )
 
-type Clientes struct {
-	Clientes []Cliente `json: "clientes"`
+type Customers struct {
+	Customers []Customer `json:"clientes"`
 }
 
-type Cliente struct {
-	Nome     string   `json: "Nome"`
-	Idade    int      `json: "Idade"`
-	Telefone string   `json: "Telefone"`
-	Endereco Endereco `json: "Endereço"`
+type Customer struct {
+	ID      int      `json:"ID"`
+	Name    string   `json:"Name"`
+	Age     int      `json:"Age"`
+	Cel     string   `json:"Cel"`
+	Address *Address `json:"Address"`
 }
 
-type Endereco struct {
-	Rua    string `json: "Rua"`
-	Numero int    `json: "Número"`
-	Cidade string `json: "Cidade"`
+type Address struct {
+	Road   string `json:"Road"`
+	Number int    `json:"Number"`
+	City   string `json:"City"`
 }
 
+func main() {
+
+	response, err := http.Get("https://raw.githubusercontent.com/viniciusgarciam/viniciusgarciam.github.io/api/clientes")
+
+	if err != nil {
+		fmt.Print(err.Error())
+		os.Exit(1)
+	}
+	responseData, err := io.ReadAll(response.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(string(responseData))
+
+	var responseObject Customers
+	json.Unmarshal(responseData, &responseObject)
+
+	// Exibindo os dados de cada cliente
+	for _, customer := range responseObject.Customers {
+		fmt.Printf("ID: %d\n", customer.ID)
+		fmt.Printf("Name: %s\n", customer.Name)
+		fmt.Printf("Age: %d\n", customer.Age)
+		fmt.Printf("Cel: %s\n", customer.Cel)
+		fmt.Printf("Road: %s\n", customer.Address.Road)
+		fmt.Printf("Number: %d\n", customer.Address.Number)
+		fmt.Printf("City: %s\n", customer.Address.City)
+		fmt.Println()
+	}
+}
