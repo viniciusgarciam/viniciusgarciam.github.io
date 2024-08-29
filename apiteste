@@ -1,0 +1,85 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/gorilla/mux"
+)
+
+type Customers struct {
+	Customers []Customer `json:"clientes"`
+}
+
+type Customer struct {
+	ID      int      `json:"ID"`
+	Name    string   `json:"Name"`
+	Age     int      `json:"Age"`
+	Cel     string   `json:"Cel"`
+	Address *Address `json:"Address"`
+}
+
+type Address struct {
+	Road   string `json:"Road"`
+	Number int    `json:"Number"`
+	City   string `json:"City"`
+}
+
+func main() {
+	r := mux.NewRouter()
+	r.HandleFunc("/Customer1", customer1Handler).Methods("GET")
+	r.HandleFunc("/Customer2", customer2Handler).Methods("GET")
+	r.HandleFunc("/Customer3", customer3Handler).Methods("GET")
+	r.HandleFunc("/Customer4", customer4Handler).Methods("GET")
+	r.HandleFunc("/", indexHandler).Methods("GET")
+	log.Fatal(http.ListenAndServe(":8000", nil))
+
+	response := mux.NewRouter()
+	response.Host("ttps://raw.githubusercontent.com/viniciusgarciam/viniciusgarciam.github.io/api/clientes")
+	
+	var responseObject Customers
+	json.Unmarshal(responseData, &responseObject)
+
+	for _, customer := range responseObject.Customers 
+
+}
+
+// request all Customers page handle
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, customer)
+}
+
+// request Customer1 page handle
+func customer1Handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, Customers)
+}
+
+// request Customer2 page handle
+func customer2Handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, customer)
+}
+
+// request Customer3 page handle
+func customer3Handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, customer)
+}
+
+// request Customer4 page handle
+func customer4Handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, customer)
+}
+
+//
+//	// Exibindo os dados de cada cliente
+//	for _, customer := range responseObject.Customers {
+//		fmt.Printf("ID: %d\n", customer.ID)
+//		fmt.Printf("Name: %s\n", customer.Name)
+//		fmt.Printf("Age: %d\n", customer.Age)
+//		fmt.Printf("Cel: %s\n", customer.Cel)
+//		fmt.Printf("Road: %s\n", customer.Address.Road)
+//		fmt.Printf("Number: %d\n", customer.Address.Number)
+//		fmt.Printf("City: %s\n", customer.Address.City)
+//		fmt.Println()
+//	}
